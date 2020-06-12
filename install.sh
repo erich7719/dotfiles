@@ -17,4 +17,11 @@ else
     apt update && apt -y install vim-scripts
 fi
 
+#disable IPV6
+if ! /etc/sysctl.d/90-disable-ipv6.conf
+    echo "disabling IPV6"
+    echo 'net.ipv6.conf.all.disable_ipv6 = 1' > /etc/sysctl.d/90-disable-ipv6.conf
+    sysctl -p -f /etc/sysctl.d/90-disable-ipv6.conf
+fi
+
 echo "Installed"
