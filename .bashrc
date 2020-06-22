@@ -129,3 +129,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Run login scripts
+for rc in ~/Shell/*.sh
+do
+    . "$rc"
+done
